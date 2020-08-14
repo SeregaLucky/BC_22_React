@@ -11,7 +11,7 @@ class Form extends Component {
     const { value } = this.state;
 
     return (
-      <form>
+      <form className={styles["form-main"]}>
         <input type="text" value={value} onChange={this.onChange} />
       </form>
     );
