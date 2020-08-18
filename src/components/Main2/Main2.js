@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class Main2 extends Component {
   state = {
     list: null,
-    value: 0,
   };
 
   componentDidMount() {
@@ -18,21 +17,17 @@ class Main2 extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('Update');
-    console.log('this.state', this.state);
-    console.log('prevState', prevState);
+    // console.log('Update');
+    // console.log('this.state', this.state);
+    // console.log('prevState', prevState);
   }
 
   shouldComponentUpdate() {
     return true;
   }
 
-  dec = () => this.setState({ value: this.state.value - 1 });
-
-  inc = () => this.setState({ value: this.state.value + 1 });
-
   render() {
-    const { list, value } = this.state;
+    const { list } = this.state;
 
     return (
       list && (
@@ -45,16 +40,6 @@ class Main2 extends Component {
               </li>
             ))}
           </ul>
-
-          <div>
-            <span>{value}</span>
-            <button type="button" onClick={this.dec}>
-              Dec
-            </button>
-            <button type="button" onClick={this.inc}>
-              Inc
-            </button>
-          </div>
         </>
       )
     );
