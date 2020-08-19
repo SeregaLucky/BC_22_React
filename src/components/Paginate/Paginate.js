@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
 import ReactPaginate from 'react-paginate';
+import { getNews } from '../../services/api';
 
 class Paginate extends Component {
   handlePageClick = data => {
     const { value, addItems } = this.props;
 
     const page = data.selected + 1;
-    console.log(1111111111, page);
 
-    fetch(
-      `https://newsapi.org/v2/everything?q=${value}&page=${page}&apiKey=33597ec26ed845a18da1dd8decec5ea1`,
-    )
-      .then(res => res.json())
+    getNews(value, page)
       .then(data => {
-        console.log(data);
+        console.log('Form data', data);
         addItems(data.articles, value, data.totalResults);
-      });
+      })
+      .catch(err => console.log(err));
   };
 
   render() {

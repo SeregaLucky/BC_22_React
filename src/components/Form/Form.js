@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { getNews } from '../../services/api';
 
 class Form extends Component {
   state = {
@@ -10,21 +11,19 @@ class Form extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    this.makeFetch(this.state.value);
+    this.makeFetch();
   };
 
-  makeFetch = value => {
+  makeFetch = () => {
     const { page, addItems } = this.props;
-    // const { value } = this.state;
+    const { value } = this.state;
 
-    fetch(
-      `https://newsapi.org/v2/everything?q=${value}&page=${page}&apiKey=33597ec26ed845a18da1dd8decec5ea1`,
-    )
-      .then(res => res.json())
+    getNews(value, page)
       .then(data => {
-        console.log(data);
+        console.log('Form data', data);
         addItems(data.articles, value, data.totalResults);
-      });
+      })
+      .catch(err => console.log(err));
   };
 
   render() {
