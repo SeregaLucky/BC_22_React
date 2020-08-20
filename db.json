@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Ice",
+      "price": "22"
+    },
+    {
+      "id": 2,
+      "title": "Milk",
+      "price": "33"
+    },
+    {
+      "id": 3,
+      "title": "Wine",
+      "price": "220"
+    }
+  ]
+}
