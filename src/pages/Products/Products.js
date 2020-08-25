@@ -7,7 +7,7 @@ class Products extends Component {
 
   async componentDidMount() {
     const { data: productsList } = await getProducts();
-    console.log(productsList);
+    // console.log(productsList);
     this.setState({ productsList: productsList });
   }
 
