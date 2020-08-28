@@ -8,18 +8,16 @@ const FormPage = () => {
   const [toggle, setToggle] = useState(false);
 
   /* IDX */
-  const idxLoginInput = useRef();
-  const idxPasswordInput = useRef();
-  // console.log(idxLoginInput);
+  const idxLoginInput = useRef(shortid.generate());
+  const idxPasswordInput = useRef(shortid.generate());
+  console.log(idxLoginInput);
   // idxLoginInput.current = shortid.generate();
 
   useEffect(() => {
     // console.log('useEffect');
-
-    idxLoginInput.current = shortid.generate();
-    idxPasswordInput.current = shortid.generate();
+    // idxLoginInput.current = shortid.generate();
+    // idxPasswordInput.current = shortid.generate();
     // console.log(idxLoginInput);
-
     // return () => {
     //   console.log('WillUnMount');
     // };
