@@ -1,8 +1,14 @@
-import React from "react";
-import "./App.css";
+import React from 'react';
+import Form from './Form';
+import NamesList from './NamesList';
 
 const App = () => {
-  return 1;
+  return (
+    <>
+      <Form />
+      <NamesList />
+    </>
+  );
 };
 
 export default App;
