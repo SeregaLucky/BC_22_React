@@ -1,12 +1,19 @@
-import { ADD_NAME, DELETE_NAME } from './typesForm';
+import {
+  ADD_NAME_SUCCESS,
+  DELETE_NAME_SUCCESS,
+  GET_NAMES_SUCCESS,
+} from './typesForm';
 import { combineReducers } from 'redux';
 
 const listNames = (state = [], { type, payload }) => {
   switch (type) {
-    case ADD_NAME:
+    case GET_NAMES_SUCCESS:
+      return payload.items;
+
+    case ADD_NAME_SUCCESS:
       return [...state, payload];
 
-    case DELETE_NAME:
+    case DELETE_NAME_SUCCESS:
       return state.filter(item => item.id !== payload.id);
 
     default:

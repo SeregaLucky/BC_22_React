@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addNameAC } from '../redux/form/actionsForm';
+import { addNameThunk } from '../redux/form/operationsForm';
 
 const Form = ({ addName }) => {
   // state = {
@@ -27,7 +27,7 @@ const Form = ({ addName }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addName: name => dispatch(addNameAC(name)),
+    addName: name => dispatch(addNameThunk(name)),
   };
 };
 

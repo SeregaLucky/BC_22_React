@@ -1,21 +1,49 @@
-import { ADD_NAME, DELETE_NAME } from './typesForm';
-import { v4 as uuidv4 } from 'uuid';
+import {
+  ADD_NAME_START,
+  ADD_NAME_SUCCESS,
+  ADD_NAME_ERROR,
+  DELETE_NAME_START,
+  DELETE_NAME_SUCCESS,
+  DELETE_NAME_ERROR,
+  GET_NAMES_START,
+  GET_NAMES_SUCCESS,
+  GET_NAMES_ERROR,
+} from './typesForm';
 
-export const addNameAC = name => {
-  return {
-    type: ADD_NAME,
-    payload: {
-      name,
-      id: uuidv4(),
-    },
-  };
-};
+/* GET ALL */
+export const getNamesStartAC = () => ({
+  type: GET_NAMES_START,
+});
+export const getNamesSuccessAC = items => ({
+  type: GET_NAMES_SUCCESS,
+  payload: { items },
+});
+export const getNamesErrorAC = error => ({
+  type: GET_NAMES_ERROR,
+  payload: { error },
+});
 
-export const deleteNameAC = id => {
-  return {
-    type: DELETE_NAME,
-    payload: {
-      id,
-    },
-  };
-};
+/* ADD */
+export const addNameStartAC = () => ({
+  type: ADD_NAME_START,
+});
+export const addNameSuccessAC = item => ({
+  type: ADD_NAME_SUCCESS,
+  payload: { item },
+});
+export const addNameErrorAC = error => ({
+  type: ADD_NAME_ERROR,
+  payload: { error },
+});
+
+/* DELETE */
+export const deleteNameStartAC = () => ({
+  type: DELETE_NAME_START,
+});
+export const deleteNameSuccessAC = id => ({
+  type: DELETE_NAME_SUCCESS,
+  payload: { id },
+});
+export const deleteNameErrorAC = () => ({
+  type: DELETE_NAME_ERROR,
+});

@@ -1,9 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import NamesListItem from './NamesListItem';
+import { getNamesThunk } from '../redux/form/operationsForm';
 
-const NamesList = ({ list }) => {
+const NamesList = ({ list, getAllNames }) => {
   console.log(list);
+
+  useEffect(() => {
+    getAllNames();
+  }, []);
 
   return (
     <ul>
@@ -21,4 +27,11 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(NamesList);
+const mapDispatchToProps = dispatch => {
+  // console.log(state)
+  return {
+    getAllNames: () => dispatch(getNamesThunk()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NamesList);

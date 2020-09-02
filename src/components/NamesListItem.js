@@ -1,27 +1,25 @@
 import React from 'react';
-import { deleteNameAC } from '../redux/form/actionsForm';
 import { connect } from 'react-redux';
+import { deleteNameThunk } from '../redux/form/operationsForm';
 
-const NamesListItem = ({ id, name, remove }) => {
+const NamesListItem = ({ name, remove }) => {
   console.log('RENDER ITEM');
-
-  const removeItem = () => remove(id);
 
   return (
     <li>
       <p>{name}</p>
 
-      <button type="button" onClick={removeItem}>
+      <button type="button" onClick={remove}>
         Delete
       </button>
     </li>
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  // console.log(state)
+const mapDispatchToProps = (dispatch, { id }) => {
+  // console.log(props);
   return {
-    remove: id => dispatch(deleteNameAC(id)),
+    remove: () => dispatch(deleteNameThunk(id)),
   };
 };
 
