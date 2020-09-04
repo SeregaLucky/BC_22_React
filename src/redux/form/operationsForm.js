@@ -1,8 +1,11 @@
-import { getAllNamesAPI } from '../../api/api';
+import { getAllNamesAPI, addNameAPI } from '../../api/api';
 import {
   getNamesSuccessAC,
   getNamesStartAC,
   getNamesErrorAC,
+  addNameStartAC,
+  addNameSuccessAC,
+  addNameErrorAC,
 } from './actionsForm';
 
 export const getNamesThunk = () => async dispatch => {
@@ -16,8 +19,15 @@ export const getNamesThunk = () => async dispatch => {
   }
 };
 
-export const addNameThunk = id => dispatch => {
-  //
+export const addNameThunk = name => async dispatch => {
+  dispatch(addNameStartAC());
+
+  try {
+    const { data } = await addNameAPI(name);
+    dispatch(addNameSuccessAC(data));
+  } catch (error) {
+    dispatch(addNameErrorAC(error));
+  }
 };
 
 export const deleteNameThunk = id => dispatch => {

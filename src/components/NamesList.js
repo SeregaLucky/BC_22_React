@@ -3,6 +3,7 @@ import { connect, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import NamesListItem from './NamesListItem';
 import { getNamesThunk } from '../redux/form/operationsForm';
+import { getListNames } from '../redux/form/selectorsForm';
 
 const NamesList = ({ list, getAllNames }) => {
   console.log(list);
@@ -23,7 +24,7 @@ const NamesList = ({ list, getAllNames }) => {
 const mapStateToProps = state => {
   // console.log(state)
   return {
-    list: state.listNames,
+    list: getListNames(state),
   };
 };
 

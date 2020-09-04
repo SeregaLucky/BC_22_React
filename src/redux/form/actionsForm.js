@@ -16,11 +16,11 @@ export const getNamesStartAC = () => ({
 });
 export const getNamesSuccessAC = items => ({
   type: GET_NAMES_SUCCESS,
-  payload: { items },
+  payload: { items: items },
 });
 export const getNamesErrorAC = error => ({
   type: GET_NAMES_ERROR,
-  payload: { error },
+  payload: { error: error },
 });
 
 /* ADD */
@@ -29,11 +29,11 @@ export const addNameStartAC = () => ({
 });
 export const addNameSuccessAC = item => ({
   type: ADD_NAME_SUCCESS,
-  payload: { item },
+  payload: { item: item },
 });
 export const addNameErrorAC = error => ({
   type: ADD_NAME_ERROR,
-  payload: { error },
+  payload: { error: error },
 });
 
 /* DELETE */
@@ -44,6 +44,7 @@ export const deleteNameSuccessAC = id => ({
   type: DELETE_NAME_SUCCESS,
   payload: { id },
 });
-export const deleteNameErrorAC = () => ({
+export const deleteNameErrorAC = error => ({
   type: DELETE_NAME_ERROR,
+  payload: { error: error },
 });
